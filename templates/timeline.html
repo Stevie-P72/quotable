@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+    {% for quote in quotes %}
+        s
+        <p>"{{quote.quote}}"</p>
+        <p>- {{quote.credit}} </p>
+
+    {% endfor %}
+    
+{% endblock %}

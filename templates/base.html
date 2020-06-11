@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quotable</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html"><i class="material-icons left">search</i>Link with Left Icon</a></li>
+                    <li><a href="badges.html"><i class="material-icons right">view_module</i>Link with Right Icon</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+    {% block content %} 
+    {% endblock %}
+    </div>
 </body>
 </html>
