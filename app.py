@@ -2,6 +2,7 @@ import os
 import pymongo
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 
 app = Flask(__name__)
@@ -10,19 +11,22 @@ app.config["MONGO_URI"] = os.getenv("QUOTABLEURI")
 mongo = PyMongo(app)
 
 
-def mongo_connect(url):
-    try:
-        conn = pymongo.MongoClient(url)
-        print("Connected to Mongo")
-        return conn
-    except pymongo.errors.ConnectionFailure as e:
-        print("Connection Failure: %S") % e
-
-
 @app.route('/')
-@app.route('/get_quotes')
+@app.route('/get_quotes', methods=["GET", "POST"])
 def get_quotes():
     return render_template('timeline.html', quotes=mongo.db.Quotes.find())
+
+
+@app.route('/add_comment/<quote_id>', methods=["POST"])
+def add_comment(quote_id):
+    quote = mongo.db.Quotes.find_one({"_id": ObjectId(quote_id)})
+    print(quote)
+    comment_list = quote['comments']+[[request.form.get('comment_user'),
+                                      request.form.get('comment_content')]]
+    mongo.db.Quotes.update({"_id": ObjectId(quote_id)},
+                           {"$set": {"comments": comment_list}})
+    print(quote)
+    return redirect(url_for('get_quotes'))
 
 
 if __name__ == '__main__':

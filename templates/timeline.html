@@ -19,9 +19,25 @@
         {{ comment[1] }}
       
         {% endfor %}
-      
-      
-      </div>
+            <div class="row">
+                <form action="{{ url_for('add_comment', quote_id=quote._id) }}" method="POST" class="col s12">
+                    <div class="row comment-row">
+                        <div class="input-field col s10 offset-s1">
+                            <input placeholder="Username" id="comment_user" type="text" name="comment_user" class="validate" required>
+                        </div>
+                    </div>
+                    <div class="row comment-row">
+                        <div class="input-field col s10 offset-s1">
+                            <textarea id="comment_content" placeholder="Comment" class="materialize-textarea" name="comment_content" required></textarea>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Edit Task
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
     </li>
     {% endfor %}
   </ul>
