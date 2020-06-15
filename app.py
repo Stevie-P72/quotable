@@ -20,12 +20,27 @@ def get_quotes():
 @app.route('/add_comment/<quote_id>', methods=["POST"])
 def add_comment(quote_id):
     quote = mongo.db.Quotes.find_one({"_id": ObjectId(quote_id)})
-    print(quote)
-    comment_list = quote['comments']+[[request.form.get('comment_user'),
-                                      request.form.get('comment_content')]]
+    try:
+        comment_list = quote['comments']+[[request.form.get('comment_user'),
+                                          request.form.get('comment_content')]]
+    except KeyError:
+        comment_list = [[request.form.get('comment_user'),
+                        request.form.get('comment_content')]]
     mongo.db.Quotes.update({"_id": ObjectId(quote_id)},
                            {"$set": {"comments": comment_list}})
     print(quote)
+    return redirect(url_for('get_quotes'))
+
+
+@app.route('/new_post')
+def new_post():
+    return render_template('create_post.html')
+
+
+@app.route('/upload_post', methods=["POST"])
+def upload_post():
+    quotes = mongo.db.Quotes
+    quotes.insert_one(request.form.to_dict())
     return redirect(url_for('get_quotes'))
 
 
