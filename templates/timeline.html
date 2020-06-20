@@ -29,8 +29,16 @@
             </div>
             <div class="collapsible-body">
             {% for comment in quote.comments %}
-                {{ comment[0] }}
-                {{ comment[1] }}
+                <div class="row">
+                    <div class="col s2">
+                        <p><strong>{{ comment[0] }}:</strong></p>
+                    </div>
+                    <div class="col s10">
+                        <p>{{ comment[1] }}</p>
+                    </div>
+                </div>
+                
+                
             {% endfor %}
                 <div class="row">
                     <form action="{{ url_for('add_comment', quote_id=quote._id) }}" method="POST" class="col s12">
