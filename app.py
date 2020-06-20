@@ -37,6 +37,13 @@ def new_post():
     return render_template('create_post.html')
 
 
+@app.route('/delete_quote/<quote_id>')
+def delete_quote(quote_id):
+    print(quote_id)
+    mongo.db.Quotes.remove({'_id': ObjectId(quote_id)})
+    return redirect(url_for('get_quotes'))
+
+
 @app.route('/upload_post', methods=["POST"])
 def upload_post():
     quotes = mongo.db.Quotes
