@@ -12,9 +12,16 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.route('/get_quotes', methods=["GET", "POST"])
+@app.route('/get_quotes/<search_type>/<search_content>',
+           methods=["GET", "POST"])
 def get_quotes():
-    return render_template('timeline.html', quotes=mongo.db.Quotes.find())
+    # if 'search_type' in locals() and 'search_content' in locals():
+    return render_template('timeline.html',
+                           quotes=mongo.db.Quotes.find())
+                                                       # "*%s*" % search_type: "*%s*" % search_content)
+    # else:
+    #    return render_template('timeline.html',
+    #                           quotes=mongo.db.Quotes.find()
 
 
 @app.route('/add_comment/<quote_id>', methods=["POST"])
@@ -28,7 +35,6 @@ def add_comment(quote_id):
                         request.form.get('comment_content')]]
     mongo.db.Quotes.update({"_id": ObjectId(quote_id)},
                            {"$set": {"comments": comment_list}})
-    print(quote)
     return redirect(url_for('get_quotes'))
 
 
@@ -48,6 +54,12 @@ def upload_post():
     quotes = mongo.db.Quotes
     quotes.insert_one(request.form.to_dict())
     return redirect(url_for('get_quotes'))
+
+
+@app.route('/search_quotes/<search_type>/<search_content>', methods=["GET"])
+def search_quotes():
+    return redirect(url_for('get_quotes'),
+                    search_type=search_type, search_content=search_content)
 
 
 if __name__ == '__main__':
