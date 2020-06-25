@@ -1,3 +1,34 @@
 .full-width{
     width: 100%
 }
+.hiddendiv{
+    width: 0 !important;
+}
+.nav_select{
+    display: inline;
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: 700;
+}
+.nav_select:hover{
+        background-color: rgba(0,0,0,0.1);
+}
+.select_option{
+    background-color: red;
+}
+#nav_search{
+    display: inline;
+    color: white;
+    font-weight: 700;
+}
+#nav_search:focus{
+    color: black;
+    font-weight: 400
+}
+
+
+
+.nav_text{
+    margin: 0;
+}
