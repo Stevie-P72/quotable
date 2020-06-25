@@ -14,14 +14,17 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_quotes/<search_type>/<search_content>',
            methods=["GET", "POST"])
-def get_quotes():
-    # if 'search_type' in locals() and 'search_content' in locals():
-    return render_template('timeline.html',
-                           quotes=mongo.db.Quotes.find())
-                                                       # "*%s*" % search_type: "*%s*" % search_content)
-    # else:
-    #    return render_template('timeline.html',
-    #                           quotes=mongo.db.Quotes.find()
+def get_quotes(search_type="", search_content=""):
+    print(search_type)
+    print(search_content)
+    if search_type == "" and search_content == "":
+        print("test1")
+        return render_template('timeline.html',
+                               quotes=mongo.db.Quotes.find())
+    else:
+        print("test2")
+        return render_template('timeline.html',
+                               quotes=mongo.db.Quotes.find({"$text": {"$search": "And"}}))
 
 
 @app.route('/add_comment/<quote_id>', methods=["POST"])
@@ -56,10 +59,13 @@ def upload_post():
     return redirect(url_for('get_quotes'))
 
 
-@app.route('/search_quotes/<search_type>/<search_content>', methods=["GET"])
+@app.route('/search_quotes', methods=["POST", "GET"])
 def search_quotes():
-    return redirect(url_for('get_quotes'),
-                    search_type=search_type, search_content=search_content)
+    print("test")
+    search_type = request.form.get('search_type')
+    search_content = request.form.get('search_content')
+    return redirect(url_for('get_quotes',
+                    search_type=search_type, search_content=search_content))
 
 
 if __name__ == '__main__':

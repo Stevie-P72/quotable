@@ -18,12 +18,12 @@
                 </ul>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <form>
+                        <form action="{{url_for('search_quotes')}}" id="search_form" method="POST">
                         
                             <ul>
                                 <li>
                                     <div class="input-field">
-                                        <input id="nav_search" class="search_text_input" type="search" placeholder="Search For:" required>
+                                        <input id="nav_search" class="search_text_input" type="search" name="search_content" placeholder="Search For:" required>
                                     </div>
                                 </li>
                                 <li><p class = "nav_text">Search In:</p></li>
@@ -31,16 +31,16 @@
                                     <div class="input-field col s12">
                                         <a>
                                             <select class = "nav_select" name="search_type">
-                                                <option class = "select_option" value="0" selected>Everything</option>
-                                                <option class = "select_option" value= "1">Usernames</option>
-                                                <option class = "select_option" value="2">Quote Credits</option>
-                                                <option class = "select_option" value="3">Quote Text</option>
+                                                <option class = "select_option" value="*" selected>Everything</option>
+                                                <option class = "select_option" value="username">Usernames</option>
+                                                <option class = "select_option" value="credit">Quote Credits</option>
+                                                <option class = "select_option" value="quote">Quote Text</option>
                                             </select>
                                         </a>
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="material-icons">search</i></a>
+                                    <a href="#" onclick="document.getElementById('search_form').submit()"><i class="material-icons">search</i></a>
                                 </li>
                             </ul>
                             
