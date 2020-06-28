@@ -15,16 +15,12 @@ mongo = PyMongo(app)
 @app.route('/get_quotes/<search_type>/<search_content>',
            methods=["GET", "POST"])
 def get_quotes(search_type="", search_content=""):
-    print(search_type)
-    print(search_content)
     if search_type == "" and search_content == "":
-        print("test1")
         return render_template('timeline.html',
                                quotes=mongo.db.Quotes.find())
     else:
-        print("test2")
         return render_template('timeline.html',
-                               quotes=mongo.db.Quotes.find({"$text": {"$search": "And"}}))
+                               quotes=mongo.db.Quotes.find({'$text': {'$search': search_content}}))
 
 
 @app.route('/add_comment/<quote_id>', methods=["POST"])
@@ -61,9 +57,15 @@ def upload_post():
 
 @app.route('/search_quotes', methods=["POST", "GET"])
 def search_quotes():
-    print("test")
+    mongo.db.Quotes.drop_indexes()
     search_type = request.form.get('search_type')
     search_content = request.form.get('search_content')
+    if search_type == "all":
+        mongo.db.Quotes.create_index([("username", 'text'),
+                                      ("quote", 'text'),
+                                      ("credit", 'text')])
+    else:
+        mongo.db.Quotes.create_index([(search_type, 'text')])
     return redirect(url_for('get_quotes',
                     search_type=search_type, search_content=search_content))
 
