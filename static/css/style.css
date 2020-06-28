@@ -14,21 +14,63 @@
 .nav_select:hover{
         background-color: rgba(0,0,0,0.1);
 }
-.select_option{
-    background-color: red;
+
+.bg-red{
+    background-color: rgb(171, 42, 36)
 }
+
+.bg-white{
+    background-color: whitesmoke;
+}
+
 #nav_search{
     display: inline;
     color: white;
     font-weight: 700;
+    border-bottom: white 1px solid
 }
 #nav_search:focus{
     color: black;
     font-weight: 400
 }
+.nav-wrapper{
+    margin-bottom: 0;
+}
 
+.container{
+    margin-top: 10px;
+}
 
+.bg-image{
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+    min-width: 1280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
+
+.collapsible{
+    margin-top: 0;
+    border: none;
+}
+
+.collapsible-header{
+    margin-top: 15px;
+}
 
 .nav_text{
     margin: 0;
+}
+
+.create_post_form{
+    padding: 5px 0
+}
+
+#quote{
+    height: 100px !important;
+    overflow-x: hidden; 
+    overflow-y: scroll; 
 }

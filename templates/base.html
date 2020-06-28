@@ -11,7 +11,7 @@
 <body>
     <header>
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper bg-red">
                 <a href="{{url_for('get_quotes')}}" class="brand-logo">Quotable</a>
                 <ul id="dropdown1" class="dropdown-content">
                     <div><li><a href="#!"></a></li></div>
@@ -31,10 +31,10 @@
                                     <div class="input-field col s12">
                                         <a>
                                             <select class = "nav_select" name="search_type">
-                                                <option class = "select_option" value="all" selected>Everything</option>
-                                                <option class = "select_option" value="username">Usernames</option>
-                                                <option class = "select_option" value="credit">Quote Credits</option>
-                                                <option class = "select_option" value="quote">Quote Text</option>
+                                                <option class = "bg-red" value="all" selected>Everything</option>
+                                                <option class = "bg-red" value="username">Usernames</option>
+                                                <option class = "bg-red" value="credit">Quote Credits</option>
+                                                <option class = "bg-red" value="quote">Quote Text</option>
                                             </select>
                                         </a>
                                     </div>
@@ -52,10 +52,12 @@
             </div>
         </nav>
     </header>
+    <img src="{{url_for('static', filename='images/rosepages.jpg')}}" alt="Background Image" class="bg-image">
     <div class="container">
     {% block content %} 
-    {% endblock %}
+    {% endblock %}  
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
@@ -66,5 +68,6 @@
     });
     
     </script>
+    
 </body>
 </html>
