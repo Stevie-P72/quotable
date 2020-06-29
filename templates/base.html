@@ -47,7 +47,7 @@
                         
                         </form>
                     </li>
-                    <li><a href="{{ url_for('new_post')}}"><i class="material-icons right">view_module</i>New Post</a></li>
+                    <li><a href="{{ url_for('new_post')}}"><i class="material-icons right">add</i>New Post</a></li>
                 </ul>
             </div>
         </nav>
@@ -68,6 +68,6 @@
     });
     
     </script>
-    
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
 </body>
 </html>

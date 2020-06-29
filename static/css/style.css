@@ -1,5 +1,6 @@
 .full-width{
-    width: 100%
+    width: 100%;
+    margin: 0;
 }
 .hiddendiv{
     width: 0 !important;
@@ -18,7 +19,9 @@
 .bg-red{
     background-color: rgb(171, 42, 36)
 }
-
+.border_red{
+    border: rgb(171, 42, 36) 3px solid;
+}
 .bg-white{
     background-color: whitesmoke;
 }
@@ -59,6 +62,7 @@
 
 .collapsible-header{
     margin-top: 15px;
+    padding-top: 0;
 }
 
 .nav_text{
@@ -69,8 +73,61 @@
     padding: 5px 0
 }
 
-#quote, .add_comment{
+#quote{
     height: 100px !important;
     overflow-x: hidden; 
     overflow-y: scroll; 
+}
+
+.comment_row{
+    margin: 0;
+}
+
+.read_only .read_quote_text,
+.read_only .read_only_btns,
+.edit_enabled .edit_quote_text,
+.edit_enabled .edit_enabled_btns{
+    display: block;
+}
+.read_only .edit_quote_text,
+.read_only .edit_enabled_btns,
+.edit_enabled .read_quote_text,
+.edit_enabled .read_only_btns{
+    display: none;
+}
+.center_text{
+    text-align: center;
+    
+}
+
+#delete_btn, #edit_btn, #cancel_btn, #submit_edit_btn{
+    margin-top: 10px;
+
+}
+
+#delete_btn_icon, #edit_btn_icon, #comment_btn_icon, #cancel_edit_btn_icon, #submit_edit_btn_icon{
+    margin: 0;
+}
+
+.full_height{
+    height: 100%;
+    margin: 0;
+}
+.half_height{
+    height: 50%;
+}
+
+.comment_name, .comment_content{
+    margin: 0;
+}
+
+.comment_row{
+    margin-bottom: 10px;
+}
+.add_comment{
+    height: 40px !important;
+}
+
+.comment_input{
+    margin: 0;
 }

@@ -55,6 +55,18 @@ def upload_post():
     return redirect(url_for('get_quotes'))
 
 
+@app.route('/edit_quote/<quote_id>', methods=["POST"])
+def edit_quote(quote_id):
+    quote_to_edit = mongo.db.Quotes.find_one({"_id": ObjectId(quote_id)})
+    comment_list = quote_to_edit["comments"]
+    mongo.db.Quotes.update({'_id': ObjectId(quote_id)},
+                           {'username': request.form.get('username'),
+                            'quote': request.form.get('quote'),
+                            'credit': request.form.get('credit'),
+                            'comments': comment_list})
+    return redirect(url_for('get_quotes'))
+
+
 @app.route('/search_quotes', methods=["POST", "GET"])
 def search_quotes():
     mongo.db.Quotes.drop_indexes()

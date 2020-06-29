@@ -9,52 +9,70 @@
     <ul class="collapsible">
     {% for quote in quotes %}
         <li>
-            <div class="collapsible-header post-container bg-white">
+            <div class="collapsible-header post-container border_red bg-white read_only">
                 <div class="row full-width">
-                    <div class="col s10">
-                        <i class="material-icons">filter_drama</i>
-                        <p>"{{quote.quote}}"</p>
-                        <p>- {{quote.credit}} </p>
-                    </div>
-                    <div class="col s2">
-                        <!--<a class="btn waves-effect waves-light" href="{{url_for('delete_quote', quote_id=quote._id)}}">Delete
-                            <i class="material-icons right">send</i>
-                        </a>-->
-                        <a class="btn waves-effect waves-light btn modal-trigger full-width" href="#modal1">Delete</a>
-                        <a class="btn waves-effect waves-light full-width">Edit
-                            <i class="material-icons right">send</i>
-                        </a>
-                    </div>
+                    <form action = "{{ url_for('edit_quote', quote_id=quote._id) }}" id="edit_quote_form" method="POST">
+                        <div class="col s9 m10 l11">
+                            <p class = "read_quote_text"><strong>{{quote.username}}</strong> Posted:</p>
+                            <hr class = "read_quote_text">
+                            <p class = "read_quote_text">"{{quote.quote}}"</p>
+                            <p class = "read_quote_text">- {{quote.credit}} </p>
+
+                            <input type="text" class = "edit_quote_text" value="{{quote.username}}" placeholder = "username" id="username" name="username">
+                            <input type="text" class = "edit_quote_text" value="{{quote.quote}}" placeholder = "quote" id="quote" name="quote">
+                            <input type="text" class = "edit_quote_text" value = "{{quote.credit}}" placeholder = "credit" id="credit" name="credit">
+                        </div>
+                        <div class="col s3 m2 l1">
+                            <div class="row full_height">
+                                <div class="col s12 half_height read_only_btns">
+                                    <a class="btn btn-floating btn-large waves-effect waves-light edit_btn" id="edit_btn"><i id = "edit_btn_icon" class="material-icons center_text">edit</i></a>
+                                </div>
+                                <div class="col s12 half_height read_only_btns">
+                                    <a class="btn btn-floating btn-large waves-effect waves-light modal-trigger" id = "delete_btn" href="#modal1"><i id = "delete_btn_icon" class="material-icons center_text">delete</i></a>
+                                </div>
+                                <div class="col s12 half_height edit_enabled_btns">
+                                    <a class="btn btn-floating btn-large waves-effect waves-light" id = "submit_edit_btn" onclick="document.getElementById('edit_quote_form').submit()"><i id = "submit_edit_btn_icon" class="material-icons center_text">check</i></a>
+                                </div>
+                                <div class="col s12 half_height edit_enabled_btns">
+                                    <a class="btn btn-floating btn-large waves-effect waves-light cancel_btn" id="cancel_btn"><i id = "cancel_edit_btn_icon" class="material-icons center_text">close</i></a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="collapsible-body bg-white">
-            {% for comment in quote.comments %}
-                <div class="row">
-                    <div class="col s2">
-                        <p><strong>{{ comment[0] }}:</strong></p>
+            <div class="collapsible-body border_red bg-white">
+                <div class="comments_container">
+                {% for comment in quote.comments %}
+                    <div class="row comment_row">
+                        <div class="col s12 l2">
+                            <p class="comment_name"><strong>{{ comment[0] }}:</strong></p>
+                        </div>
+                        <div class="col s12 l10">
+                            <p class = "comment_content">{{ comment[1] }}</p>
+                        </div>
                     </div>
-                    <div class="col s10">
-                        <p>{{ comment[1] }}</p>
-                    </div>
+                {% endfor %}
+                    
                 </div>
                 
-                
-            {% endfor %}
+            
                 <div class="row">
-                    <form action="{{ url_for('add_comment', quote_id=quote._id) }}" method="POST" class="col s12">
-                        <div class="row comment-row">
-                            <div class="input-field col s10 offset-s1">
+                    <form action="{{ url_for('add_comment', quote_id=quote._id) }}" method="POST" class="col s12" id="add_comment_form">
+                        <div class="row comment_row">
+                            <div class="input-field comment_input col s6 l2">
                                 <input placeholder="Username" id="comment_user" type="text" name="comment_user" class="validate" required>
                             </div>
                         </div>
-                        <div class="row comment-row">
-                            <div class="input-field col s10 offset-s1">
+                        <div class="row comment_row">
+                            <div class="input-field comment_input col s9 m10 l11">
                                 <textarea id="comment_content" placeholder="Comment" class="materialize-textarea add_comment" name="comment_content" required></textarea>
                             </div>
+                            <div class="col s3 m2 l1"><a href="#" onclick="document.getElementById('add_comment_form').submit()" class = "btn btn-floating btn-large waves-effect waves-light"><i id = "comment_btn_icon" class="material-icons center_text">insert_comment</i></a></div>
                         </div>
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Post Comment
-                            <i class="material-icons right">send</i>
-                        </button>
+                        
+                        
                     </form>
                 </div>
 
@@ -75,7 +93,7 @@
     {% endfor %}
     </ul>
     
-
+ 
     
 
 {% endblock %}
