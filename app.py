@@ -63,9 +63,11 @@ def search_quotes():
     if search_type == "all":
         mongo.db.Quotes.create_index([("username", 'text'),
                                       ("quote", 'text'),
-                                      ("credit", 'text')])
+                                      ("credit", 'text')],
+                                     default_language='none')
     else:
-        mongo.db.Quotes.create_index([(search_type, 'text')])
+        mongo.db.Quotes.create_index([(search_type, 'text')],
+                                     default_language='none')
     return redirect(url_for('get_quotes',
                     search_type=search_type, search_content=search_content))
 

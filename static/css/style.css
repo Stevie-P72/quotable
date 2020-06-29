@@ -69,7 +69,7 @@
     padding: 5px 0
 }
 
-#quote{
+#quote, .add_comment{
     height: 100px !important;
     overflow-x: hidden; 
     overflow-y: scroll; 
