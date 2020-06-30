@@ -20,7 +20,6 @@
                 <ul class="right hide-on-med-and-down">
                     <li>
                         <form action="{{url_for('search_quotes')}}" id="search_form" method="POST">
-                        
                             <ul>
                                 <li>
                                     <div class="input-field">
@@ -44,8 +43,6 @@
                                     <a onclick="document.getElementById('search_form').submit()"><i class="material-icons">search</i></a>
                                 </li>
                             </ul>
-                            
-                        
                         </form>
                     </li>
                     <li><a href="{{ url_for('new_post')}}"><i class="material-icons right">add</i>New Post</a></li>
@@ -71,9 +68,7 @@
     $('.modal').modal();
     $(".dropdown-trigger").dropdown();
     $('.sidenav').sidenav();
-    
     });
-    
     </script>
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
 </body>

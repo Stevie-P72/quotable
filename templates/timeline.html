@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% block content %}
-    
-        
-        
-
-    
     <ul class="collapsible">
     {% for quote in quotes %}
         <li class="read_only">
@@ -19,7 +14,6 @@
                             <hr class = "read_quote_text">
                             <p class = "read_quote_text">"{{quote.quote}}"</p>
                             <p class = "read_quote_text"><strong>- {{quote.credit}} </strong></p>
-
                             <input type="text" class = "edit_quote_text" value="{{quote.username}}" placeholder = "username" id="username" name="username">
                             <input type="text" class = "edit_quote_text" value="{{quote.quote}}" placeholder = "quote" id="quote" name="quote">
                             <input type="text" class = "edit_quote_text" value = "{{quote.credit}}" placeholder = "credit" id="credit" name="credit">
@@ -38,7 +32,6 @@
                                 <div class="col s12 half_height edit_enabled_btns">
                                     <a class="btn btn-floating btn-large waves-effect waves-light cancel_btn" id="cancel_btn"><i id = "cancel_edit_btn_icon" class="material-icons center_text">close</i></a>
                                 </div>
-                                
                             </div>
                         </div>
                     </form>
@@ -52,7 +45,6 @@
                         <hr>
                     </div>
                 </div>
-                
                 {% for comment in quote.comments %}
                     <div class="row comment_row">
                         <div class="col s12 l2">
@@ -67,10 +59,7 @@
                         </div>
                     </div>
                 {% endfor %}
-                    
                 </div>
-                
-            
                 <div class="row">
                     <form action="{{ url_for('add_comment', quote_id=quote._id) }}" method="POST" class="col s12" id="add_comment_form">
                         <div class="row comment_row">
@@ -84,11 +73,8 @@
                             </div>
                             <div class="col s3 m2 l1"><a href="#" onclick="document.getElementById('add_comment_form').submit()" class = "btn btn-floating btn-large waves-effect waves-light"><i id = "comment_btn_icon" class="material-icons center_text">insert_comment</i></a></div>
                         </div>
-                        
-                        
                     </form>
                 </div>
-
             </div>
         </li>
         <!-- Modal For DELETE QUOTE Function -->
@@ -105,8 +91,4 @@
         </div>
     {% endfor %}
     </ul>
-    
- 
-    
-
 {% endblock %}

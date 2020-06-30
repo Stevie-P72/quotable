@@ -4,42 +4,33 @@
     <div class="row bg_white border_red">
         <div class="col s12">
             <h2 class="small_header search_header">Search</h2>
-            <form action="{{url_for('search_quotes')}}" id="mobile_search_form" method="POST">
-                        
-                            <ul>
-                                <li>
-                                    <div class="input-field">
-                                        <input id="mobile_search" class="search_text_input" type="search" name="search_content" placeholder="Search For:" required>
-                                    </div>
-                                </li>
-                                <li><p class = "mobile_text">Search In:</p></li>
-                                <li>
-                                    <div class="input-field col s12">
-                                        <a>
-                                            <select class = "mobile_select" name="search_type">
-                                                <option class = "bg-red" value="all" selected><strong>Everything</strong></option>
-                                                <option class = "bg-red" value="username"><strong>Usernames</strong></option>
-                                                <option class = "bg-red" value="credit"><strong>Quote Credits</strong></option>
-                                                <option class = "bg-red" value="quote"><strong>Quote Text</strong></option>
-                                            </select>
-                                        </a>
-                                    </div>
-                                </li>
-                                <li class="align_end">
-                                    <a onclick="document.getElementById('mobile_search_form').submit()"><i class="material-icons">search</i></a>
-                                </li>
-                            </ul>
-                            
-                        
-                        </form>
-        
-        
+            <form action="{{url_for('search_quotes')}}" id="mobile_search_form" method="POST">  
+                <ul>
+                    <li>
+                        <div class="input-field">
+                            <input id="mobile_search" class="search_text_input" type="search" name="search_content" placeholder="Search For:" required>
+                        </div>
+                    </li>
+                    <li><p class = "mobile_text">Search In:</p></li>
+                    <li>
+                        <div class="input-field col s12">
+                            <a>
+                                <select class = "mobile_select" name="search_type">
+                                    <option class = "bg-red" value="all" selected><strong>Everything</strong></option>
+                                    <option class = "bg-red" value="username"><strong>Usernames</strong></option>
+                                    <option class = "bg-red" value="credit"><strong>Quote Credits</strong></option>
+                                    <option class = "bg-red" value="quote"><strong>Quote Text</strong></option>
+                                </select>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="align_end">
+                        <a onclick="document.getElementById('mobile_search_form').submit()"><i class="material-icons">search</i></a>
+                    </li>
+                </ul>
+                
+            
+            </form>
         </div>
-    
     </div>
-    
-<script>
-
-</script>
-
 {% endblock %}

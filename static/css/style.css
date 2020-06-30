@@ -1,14 +1,50 @@
+/*----------------------------- Structure */
 .full-width{
     width: 100%;
     margin: 0 0 0 0
 }
 
-#edit_header{
-    margin-top: 15px;
+.full_height{
+    height: 100%;
+    margin: 0;
+}
+.half_height{
+    height: 50%;
 }
 
+/*----------------------------- Coloring */
+.bg-red{
+    background-color: rgb(171, 42, 36)
+}
+.border_red{
+    border: rgb(171, 42, 36) 3px solid;
+}
+.bg_white{
+    background-color: whitesmoke;
+}
+
+/*-------------------------- Overwriting Materialize Defaults */
 .hiddendiv{
     width: 0 !important;
+}
+
+.nav-wrapper{
+    margin-bottom: 0;
+}
+
+#quote{
+    height: 100px !important;
+    overflow-x: hidden; 
+    overflow-y: scroll; 
+}
+
+.nav-wrapper{
+    margin-bottom: 0;
+}
+
+/*--------------------------- Fonts and Headers*/
+#edit_header{
+    margin-top: 15px;
 }
 
 .small_header{
@@ -17,11 +53,27 @@
     font-weight: 500;
 }
 
+.align_end{
+    text-align: end;
+}
+
+.container{
+    margin-top: 10px;
+}
+
+.center_text{
+    text-align: center;
+}
+
+#submit_header, .search_header, .no_results_header{
+    margin: 5px;
+}
+
+/*--------------------------- Search Forms */
 .nav_select, .mobile_select{
     display: inline;
     background: transparent;
     border: none;
-    
     font-weight: 700;
 }
 
@@ -38,20 +90,9 @@
         background-color: rgba(0,0,0,0.1);
 }
 
-.bg-red{
-    background-color: rgb(171, 42, 36)
-}
-.border_red{
-    border: rgb(171, 42, 36) 3px solid;
-}
-.bg_white{
-    background-color: whitesmoke;
-}
-
 #nav_search, #nav_search_mobile{
     display: inline;
-    font-weight: 700;
-    
+    font-weight: 700;    
 }
 
 #nav_search_mobile{
@@ -59,31 +100,21 @@
     border-bottom: black 1px solid
 }
 
-.align_end{
-    text-align: end;
-}
-
 #nav_search{
     color: white;
     border-bottom: white 1px solid
-}
-
-#mobile_search_form .input-field{
-    
 }
 
 #nav_search:focus{
     color: black;
     font-weight: 400
 }
-.nav-wrapper{
-    margin-bottom: 0;
+
+.nav_text{
+    margin: 0;
 }
 
-.container{
-    margin-top: 10px;
-}
-
+/*----------------- Base */
 .bg-image{
     min-height: 100%;
     height: auto;
@@ -95,6 +126,7 @@
     z-index: -100;
 }
 
+/*--------------------- Timeline */
 .collapsible{
     margin-top: 0;
     border: none;
@@ -109,23 +141,7 @@
     padding: 1rem;
 }
 
-.nav_text{
-    margin: 0;
-}
-
-.create_post_form{
-    padding: 5px 0
-}
-
-#quote{
-    height: 100px !important;
-    overflow-x: hidden; 
-    overflow-y: scroll; 
-}
-
-.comment_row{
-    margin: 0;
-}
+/* Switching Between reading and editing a specific post */
 
 .read_only .read_quote_text,
 .read_only .read_only_btns,
@@ -139,10 +155,6 @@
 .edit_enabled .read_only_btns{
     display: none;
 }
-.center_text{
-    text-align: center;
-    
-}
 
 #delete_btn, #edit_btn, #cancel_btn, #submit_edit_btn{
     margin-top: 10px;
@@ -153,13 +165,7 @@
     margin: 0;
 }
 
-.full_height{
-    height: 100%;
-    margin: 0;
-}
-.half_height{
-    height: 50%;
-}
+/*------------------- Comments */
 
 .comment_name, .comment_content{
     margin: 0;
@@ -176,11 +182,15 @@
     margin: 0;
 }
 
-#submit_header, .search_header, .no_results_header{
-    margin: 5px;
+.comment_row{
+    margin: 0;
+}
+
+/*------------------- Create Post page */
+.create_post_form{
+    padding: 5px 0
 }
 
 .submit_btn{
     float: right;
 }
-
