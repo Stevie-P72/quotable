@@ -13,6 +13,7 @@
         <nav>
             <div class="nav-wrapper bg-red">
                 <a href="{{url_for('get_quotes')}}" class="brand-logo">Quotable</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="dropdown1" class="dropdown-content">
                     <div><li><a href="#!"></a></li></div>
                 </ul>
@@ -51,6 +52,10 @@
                 </ul>
             </div>
         </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('new_post')}}"><i class="material-icons right">add</i>New Post</a></li>
+            <li><a href="{{ url_for('search_page')}}"><i class="material-icons right">search</i>Search Posts</a></li>
+        </ul>
     </header>
     <img src="{{url_for('static', filename='images/rosepages.jpg')}}" alt="Background Image" class="bg-image">
     <div class="container">
@@ -65,6 +70,7 @@
     $('.collapsible').collapsible();
     $('.modal').modal();
     $(".dropdown-trigger").dropdown();
+    $('.sidenav').sidenav();
     });
     
     </script>

@@ -100,6 +100,11 @@ def delete_comment(quote_id, username, content):
     return redirect(url_for('get_quotes'))
 
 
+@app.route('/search_page')
+def search_page():
+    return render_template('search_page.html')
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

@@ -17,13 +17,22 @@
     font-weight: 500;
 }
 
-.nav_select{
+.nav_select, .mobile_select{
     display: inline;
     background: transparent;
     border: none;
-    color: white;
+    
     font-weight: 700;
 }
+
+.mobile_select{
+    color: black;
+}
+
+.nav_select{
+    color: white;
+}
+
 .nav_select:hover{
         background-color: rgba(0,0,0,0.1);
 }
@@ -38,12 +47,30 @@
     background-color: whitesmoke;
 }
 
-#nav_search{
+#nav_search, #nav_search_mobile{
     display: inline;
-    color: white;
     font-weight: 700;
+    
+}
+
+#nav_search_mobile{
+    color: black;
+    border-bottom: black 1px solid
+}
+
+.align_end{
+    text-align: end;
+}
+
+#nav_search{
+    color: white;
     border-bottom: white 1px solid
 }
+
+#mobile_search_form .input-field{
+    
+}
+
 #nav_search:focus{
     color: black;
     font-weight: 400
@@ -148,14 +175,10 @@
     margin: 0;
 }
 
-#submit_header{
+#submit_header, .search_header, .no_results_header{
     margin: 5px;
 }
 
 .submit_btn{
     float: right;
-}
-
-.no_results_header{
-    margin: 5px;
 }
