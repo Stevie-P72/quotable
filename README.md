@@ -3,19 +3,20 @@
 A social website where users share quotes that they enjoyed, and can discuss them with other users in comments.
 
 ## UX
-For: Cinema, music, poetry fans
+I have provided a few examples of what types of perople may use this website, and what they may use it for.
 
-User Story (Saw film, enjoyed quote, wanted to share and see what others thought)
+* User 1: A philosophy student who has just read something interesting from their favourite Greek Philosopher, and wants to share it with others.
+* User 2: A film critic who wants to see others take on a famous movie quote before publishing their own take.
+* User 3: Someone who reads poetry, and finds something thought provoking, so they post that quote, looking to find out what it means to different people.
 
 ## Features
-* Create Post
-* Edit Existing Post
-* Comment on posts
-* Delete posts
-* Search by username, quote text, credit or everything
+* The ability to create, read, update and delete posts.
+* Comments on each post, so that you can discuss them with other users.
+* A search function, to see what a particular user has uploaded, or find multiple quotes credited to one person.
+
 
 ## Features Left to Implement
-The ability to log in.
+The ability to log in, so that your user is a constant, along with stopping anyone else from deleting posts or comments you have made.
 
 ## Technologies Used
 * HTML
@@ -45,7 +46,7 @@ In order to do this, the following steps were taken:
 
 ## Credits
 ### Sample Quotes
-All quotes are credited to the films, books or songs they are quoted from.
+All quotes are credited to the films, books or songs they are quoted from, and are the responsibility of the user to credit them accordingly.
 
 ### Media
 The background image for the site is obtained from: https://www.wallpaperflare.com/
