@@ -8,15 +8,17 @@
     
     <ul class="collapsible">
     {% for quote in quotes %}
-        <li>
-            <div class="collapsible-header post-container border_red bg-white read_only">
+        <li class="read_only">
+            <div class="collapsible-header post-container border_red bg-white">
                 <div class="row full-width">
                     <form action = "{{ url_for('edit_quote', quote_id=quote._id) }}" id="edit_quote_form" method="POST">
                         <div class="col s9 m10 l11">
+                            <h2 id = "edit_header" class = "small_header edit_quote_text">Edit Quote</h2>
+                            <hr class="edit_quote_text">
                             <p class = "read_quote_text"><strong>{{quote.username}}</strong> Posted:</p>
                             <hr class = "read_quote_text">
                             <p class = "read_quote_text">"{{quote.quote}}"</p>
-                            <p class = "read_quote_text">- {{quote.credit}} </p>
+                            <p class = "read_quote_text"><strong>- {{quote.credit}} </strong></p>
 
                             <input type="text" class = "edit_quote_text" value="{{quote.username}}" placeholder = "username" id="username" name="username">
                             <input type="text" class = "edit_quote_text" value="{{quote.quote}}" placeholder = "quote" id="quote" name="quote">
@@ -44,13 +46,24 @@
             </div>
             <div class="collapsible-body border_red bg-white">
                 <div class="comments_container">
+                <div class="row">
+                    <div class="col col s9 m10 l11">
+                        <h2 class = "small_header">Comments</h2>
+                        <hr>
+                    </div>
+                </div>
+                
                 {% for comment in quote.comments %}
                     <div class="row comment_row">
                         <div class="col s12 l2">
                             <p class="comment_name"><strong>{{ comment[0] }}:</strong></p>
                         </div>
-                        <div class="col s12 l10">
+                        <div class="col s9 m10 l9">
                             <p class = "comment_content">{{ comment[1] }}</p>
+                            <hr class = "edit_quote_text">
+                        </div>
+                        <div class="col s3 m2 l1 edit_enabled_btns">
+                            <a class="btn btn-floating btn-large waves-effect waves-light" href="{{ url_for('delete_comment', quote_id=quote._id, username=comment[0], content=comment[1]) }}" id = "delete_comment_btn"><i id = "delete_comment_btn_icon" class="material-icons center_text">delete</i></a>
                         </div>
                     </div>
                 {% endfor %}

@@ -84,6 +84,18 @@ def search_quotes():
                     search_type=search_type, search_content=search_content))
 
 
+@app.route('/delete_comment/<quote_id>/<username>/<content>')
+def delete_comment(quote_id, username, content):
+    print(username)
+    print(content)
+    quote = mongo.db.Quotes.find_one({"_id": ObjectId(quote_id)})
+    comment_list = quote['comments']
+    comment_list.remove([username, content])
+    mongo.db.Quotes.update({"_id": ObjectId(quote_id)},
+                           {"$set": {"comments": comment_list}})
+    return redirect(url_for('get_quotes'))
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
