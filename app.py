@@ -19,8 +19,12 @@ def get_quotes(search_type="", search_content=""):
         return render_template('timeline.html',
                                quotes=mongo.db.Quotes.find())
     else:
+        quote_list = mongo.db.Quotes.find({'$text':
+                                           {'$search': search_content}})
+        if quote_list.count() == 0:
+            return render_template('no_results.html')
         return render_template('timeline.html',
-                               quotes=mongo.db.Quotes.find({'$text': {'$search': search_content}}))
+                               quotes=quote_list)
 
 
 @app.route('/add_comment/<quote_id>', methods=["POST"])

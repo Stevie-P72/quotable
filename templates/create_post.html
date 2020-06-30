@@ -2,7 +2,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="row bg-white create_post_form border_red">
+<div class="row bg_white create_post_form border_red">
+    <h2 id="submit_header" class="small_header">Upload a new quote</h2>
+    <hr>
     <form class="col s12" action="{{url_for('upload_post')}}" method="POST">
         <div class="row">
             <div class="input-field col s6">
@@ -22,8 +24,8 @@
             </div>
         
         </div>
-        <button class="btn waves-effect waves-light" type="submit">Upload Post
-            <i class="material-icons right">send</i>
+        <button class="btn waves-effect waves-light submit_btn" type="submit">Upload Post
+            <i class="material-icons right">add</i>
         </button>
       
      
