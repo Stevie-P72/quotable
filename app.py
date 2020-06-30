@@ -76,6 +76,8 @@ def search_quotes():
     mongo.db.Quotes.drop_indexes()
     search_type = request.form.get('search_type')
     search_content = request.form.get('search_content')
+    if search_content == "":
+        return redirect(url_for('get_quotes'))
     if search_type == "all":
         mongo.db.Quotes.create_index([("username", 'text'),
                                       ("quote", 'text'),

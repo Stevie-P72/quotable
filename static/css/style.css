@@ -27,6 +27,7 @@
 
 .mobile_select{
     color: black;
+    border: black 1px solid
 }
 
 .nav_select{
@@ -182,3 +183,4 @@
 .submit_btn{
     float: right;
 }
+
