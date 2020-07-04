@@ -9,6 +9,8 @@ I have provided a few examples of what types of perople may use this website, an
 * User 2: A film critic who wants to see others take on a famous movie quote before publishing their own take.
 * User 3: Someone who reads poetry, and finds something thought provoking, so they post that quote, looking to find out what it means to different people.
 
+For forms that would be difficult to layout on a mobile, I have added seperate pages for them, instead of integrating them into the page.
+
 ## Features
 * The ability to create, read, update and delete posts.
 * Comments on each post, so that you can discuss them with other users.
@@ -41,8 +43,9 @@ The ability to log in, so that your user is a constant, along with stopping anyo
 ## Deployment
 This project was deployed to Heroku.
 In order to do this, the following steps were taken:
-* A Procfile was created, to inform Heroku what commands are required to run the website
-* a Requirements.txt file, which is used to install all of the dependencies this website has.
+* A Procfile was created, to inform Heroku what commands are required to run the website.
+* A Requirements.txt file, which is used to install all of the dependencies this website has.
+* Environment variables for IP, Port and the Mongo URL were set, so to give access to the Mongo Database.
 
 ## Credits
 ### Sample Quotes
