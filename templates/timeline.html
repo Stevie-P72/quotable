@@ -27,7 +27,7 @@
                                     <a class="btn btn-floating btn-large waves-effect waves-light modal-trigger" id = "delete_btn" href="#modal1"><i id = "delete_btn_icon" class="material-icons center_text">delete</i></a>
                                 </div>
                                 <div class="col s12 half_height edit_enabled_btns">
-                                    <a class="btn btn-floating btn-large waves-effect waves-light" id = "submit_edit_btn" onclick="document.getElementById('edit_quote_form').submit()"><i id = "submit_edit_btn_icon" class="material-icons center_text">check</i></a>
+                                    <a class="btn btn-floating btn-large waves-effect waves-light" id = "submit_edit_btn" onclick="$(this).closest('#edit_quote_form').submit()"><i id = "submit_edit_btn_icon" class="material-icons center_text">check</i></a>
                                 </div>
                                 <div class="col s12 half_height edit_enabled_btns">
                                     <a class="btn btn-floating btn-large waves-effect waves-light cancel_btn" id="cancel_btn"><i id = "cancel_edit_btn_icon" class="material-icons center_text">close</i></a>
@@ -71,7 +71,7 @@
                             <div class="input-field comment_input col s9 m10 l11">
                                 <textarea id="comment_content" placeholder="Comment" class="materialize-textarea add_comment" name="comment_content" required></textarea>
                             </div>
-                            <div class="col s3 m2 l1"><a href="#" onclick="document.getElementById('add_comment_form').submit()" class = "btn btn-floating btn-large waves-effect waves-light"><i id = "comment_btn_icon" class="material-icons center_text">insert_comment</i></a></div>
+                            <div class="col s3 m2 l1"><a href="#" onclick="$(this).closest('#add_comment_form').submit()" class = "btn btn-floating btn-large waves-effect waves-light"><i id = "comment_btn_icon" class="material-icons center_text">insert_comment</i></a></div>
                         </div>
                     </form>
                 </div>
