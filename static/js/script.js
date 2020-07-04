@@ -5,5 +5,4 @@ $( document ).ready(function() {
     $(".cancel_btn").on("click", function(){
         $(this).closest('.edit_enabled').addClass('read_only').removeClass('edit_enabled')   
     })
-    
 })
